@@ -56,5 +56,9 @@ public class CustomerService {
 
     }
 
+    public List<CustomerEntity> findbyaddress(String address){
+        return customerRepo.findByAddress(address);
+    }
+
 
 }

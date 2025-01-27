@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface CustomerRepo extends JpaRepository<CustomerEntity,Long> {
 
+    List<CustomerEntity> findByAddress(String address);
+
 
 
 

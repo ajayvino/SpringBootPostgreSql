@@ -43,6 +43,11 @@ public class CustomerController {
         return customerService.deleteCustomer(id);
     }
 
+    @GetMapping("/getcustomerbyaddress/{address}")
+    public List<CustomerEntity> fetchdetailsbyaddress(@PathVariable String address){
+        return customerService.findbyaddress(address);
+    }
+
 
 
 }
