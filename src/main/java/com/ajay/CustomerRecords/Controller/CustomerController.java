@@ -23,7 +23,7 @@ public class CustomerController {
 
     }
 
-    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
+    @CrossOrigin(origins = "https://customer-database.onrender.com")
     @PostMapping("/saveCustomer")
     public CustomerEntity savedata(@RequestBody CustomerEntity customerEntity){
         return customerService.saveDetails(customerEntity);
@@ -32,17 +32,17 @@ public class CustomerController {
     public CustomerEntity fetchdetailsbyid(@PathVariable long id){
         return customerService.getcustomerbyid(id);
     }
-    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
+    @CrossOrigin(origins = "https://customer-database.onrender.com")
     @PutMapping("/updateCustomer")
     public CustomerEntity updateDetails(@RequestBody CustomerEntity studentEntity){
         return customerService.updateCustomer(studentEntity);
     }
-    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
+    @CrossOrigin(origins = "https://customer-database.onrender.com")
     @DeleteMapping("/deleteCustomer/{id}")
     public Boolean deleteDetails(@PathVariable long id){
         return customerService.deleteCustomer(id);
     }
-
+    @CrossOrigin(origins = "https://customer-database.onrender.com")
     @GetMapping("/getcustomerbyaddress/{address}")
     public List<CustomerEntity> fetchdetailsbyaddress(@PathVariable String address){
         return customerService.findbyaddress(address);
