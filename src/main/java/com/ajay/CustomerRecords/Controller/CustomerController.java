@@ -16,7 +16,7 @@ public class CustomerController {
 
 
 
-    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
+    @CrossOrigin(origins = "https://customer-database.onrender.com")
     @GetMapping("/getdetails")
     public List<CustomerEntity> findall(){
         return customerService.getalldata();
@@ -28,6 +28,7 @@ public class CustomerController {
     public CustomerEntity savedata(@RequestBody CustomerEntity customerEntity){
         return customerService.saveDetails(customerEntity);
     }
+    @CrossOrigin(origins = "https://customer-database.onrender.com")
     @GetMapping("/getcustomerbyid/{id}")
     public CustomerEntity fetchdetailsbyid(@PathVariable long id){
         return customerService.getcustomerbyid(id);
