@@ -14,13 +14,16 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+
+
+    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
     @GetMapping("/getdetails")
     public List<CustomerEntity> findall(){
-
         return customerService.getalldata();
 
     }
 
+    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
     @PostMapping("/saveCustomer")
     public CustomerEntity savedata(@RequestBody CustomerEntity customerEntity){
         return customerService.saveDetails(customerEntity);
@@ -29,14 +32,14 @@ public class CustomerController {
     public CustomerEntity fetchdetailsbyid(@PathVariable long id){
         return customerService.getcustomerbyid(id);
     }
-
+    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
     @PutMapping("/updateCustomer")
     public CustomerEntity updateDetails(@RequestBody CustomerEntity studentEntity){
         return customerService.updateCustomer(studentEntity);
     }
-
+    @CrossOrigin(origins = "https://angularspringbootpostgresql.onrender.com")
     @DeleteMapping("/deleteCustomer/{id}")
-    public String deleteDetails(@PathVariable long id){
+    public Boolean deleteDetails(@PathVariable long id){
         return customerService.deleteCustomer(id);
     }
 

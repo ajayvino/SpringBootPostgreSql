@@ -3,6 +3,7 @@ package com.ajay.CustomerRecords.Service;
 import com.ajay.CustomerRecords.Entity.CustomerEntity;
 import com.ajay.CustomerRecords.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class CustomerService {
     private CustomerRepo customerRepo;
 
     public List<CustomerEntity> getalldata(){
-        return customerRepo.findAll();
+        return customerRepo.findAll(Sort.by("id").ascending());
     }
 
     public CustomerEntity getcustomerbyid(long id){
@@ -43,15 +44,15 @@ public class CustomerService {
         return null;
     }
 
-    public String deleteCustomer(Long id){
+    public Boolean deleteCustomer(Long id){
 
         if(customerRepo.existsById(id)){
             customerRepo.deleteById(id);
-            return "Deleted Successfully"+id;
+            return true;
 
         }
 
-        return "ID Not Present";
+        return false;
 
     }
 
